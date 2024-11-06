@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="question">問題: xは10以上</div>
+    <input type="text" id="answer" placeholder="例: x >= 10">
+    <button onclick="checkAnswer()">チェック</button>
+    <div id="result"></div>
+    <button onclick="nextQuestion()">次の問題へ</button>
+    <button onclick="showHint()">ヒント</button>
+  <div id="hint" style="display:none;">「以上」は >= を使用します。</div>
+  <script src="js/script.js"></script>
+</body>
+</html>
