@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
+
 <body>
-  <div id="question-container">
-    <div id="question">問題: </div>
-    <button onclick="showHint()">ヒント</button>
-    <input type="text" id="answer" placeholder="回答を入力">
+  <div class="container">
+    <div id="question-container">
+      <div id="question">問題: xは10以上</div>
+      <button onclick="showHint()" id="hint-button">ヒント</button>
+    </div>
+    <input type="text" id="answer" placeholder="解答を入力">
     <div id="hint" style="display:none; margin-top: 10px;"></div> <!-- ヒント表示位置 -->
     <div id="result" style="margin-top: 10px;"></div> <!-- 結果表示 -->
     <button onclick="nextQuestion()">次の問題へ</button>
@@ -17,4 +22,5 @@
   </div>
   <script src="js/script.js"></script>
 </body>
+
 </html>

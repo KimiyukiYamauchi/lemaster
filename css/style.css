@@ -1,0 +1,36 @@
+/* ページ全体を中央に揃える */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 縦方向も中央に配置する場合 */
+  margin: 0; /* ページ全体の余白をリセット */
+}
+
+/* コンテンツ全体の幅と左右のマージンを均等にする */
+.container {
+  width: 80%; /* ページ幅に対するコンテンツの幅 */
+  max-width: 600px; /* 最大幅を指定 */
+  margin: 0 auto; /* 左右のマージンを均等に */
+  padding: 20px; /* 必要に応じて内側の余白を設定 */
+  box-sizing: border-box; /* パディングも幅に含める */
+}
+
+/* question-containerの設定で、問題文とヒントボタンを左右に配置 */
+#question-container {
+  display: flex;
+  justify-content: space-between; /* 左右に配置 */
+  align-items: center;
+  margin-bottom: 10px; /* 下の要素との余白 */
+}
+
+/* ヒントボタンのスタイル調整（必要に応じて） */
+#hint-button {
+  margin-left: 10px; /* 問題文からの余白 */
+}
+
+input[type="text"] {
+  padding: 10px; /* 上下左右に10pxのパディングを追加 */
+  box-sizing: border-box; /* パディングを含めたサイズ調整 */
+  width: 100%; /* 幅を100%に設定し、コンテナに収まるようにする */
+}

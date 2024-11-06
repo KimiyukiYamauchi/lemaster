@@ -2,13 +2,13 @@ let questions = [
   { question: "xは10以上", answer: ["x >= 10"], hint: "「以上」は >= を使用します。" },
   { question: "xは10以下", answer: ["x <= 10"], hint: "「以下」は <= を使用します。" },
   { question: "xは10を超える", answer: ["x > 10"], hint: "「を超える」は > を使用します。" },
-  { question: "xは10未満", answer: ["x < 10"], hint: "「未満」は < を使用します。" },
-  { question: "xは10に等しい", answer: ["x == 10"], hint: "「等しい」は == を使用します。" },
-  { question: "xは10に等しくない", answer: ["x != 10", "x <> 10"], hint: "「等しくない」は != または <> を使用します。" },
-  { question: "xは10以上かつ20以下", answer: ["x >= 10 && x <= 20"], hint: "&&(かつ(and)の意味)を使用します" },
-  { question: "xは10以下または20以上", answer: ["x <= 10 || x >= 20"], hint: "||(または(or)の意味)を使用します" },
-  { question: "xは10より大きいかつ20より小さい", answer: ["x > 10 && x < 20"], hint: "&&(かつ(and)の意味)を使用します" },
-  { question: "xは10未満または20を越える", answer: ["x < 10 || x > 20"], hint: "||(または(or)の意味)を使用します" },
+  // { question: "xは10未満", answer: ["x < 10"], hint: "「未満」は < を使用します。" },
+  // { question: "xは10に等しい", answer: ["x == 10"], hint: "「等しい」は == を使用します。" },
+  // { question: "xは10に等しくない", answer: ["x != 10", "x <> 10"], hint: "「等しくない」は != または <> を使用します。" },
+  // { question: "xは10以上かつ20以下", answer: ["x >= 10 && x <= 20"], hint: "&&(かつ(and)の意味)を使用します" },
+  // { question: "xは10以下または20以上", answer: ["x <= 10 || x >= 20"], hint: "||(または(or)の意味)を使用します" },
+  // { question: "xは10より大きいかつ20より小さい", answer: ["x > 10 && x < 20"], hint: "&&(かつ(and)の意味)を使用します" },
+  // { question: "xは10未満または20を越える", answer: ["x < 10 || x > 20"], hint: "||(または(or)の意味)を使用します" },
   // 他の問題も追加できます
 ];
 
@@ -50,9 +50,14 @@ function checkAnswer() {
 
 function nextQuestion() {
   // すべての問題が出題されたら、リセットして再度ランダムに出題できるようにする
+  console.log("remainingQuestions.length = " + remainingQuestions.length);
   if (remainingQuestions.length === 0) {
     remainingQuestions = [...questions]; // 全問題を再セット
+    correctCount = 0;
+    questionCount = 0;
   }
+
+  console.log("correctCount = " + correctCount, " questionCount = " +  questionCount);
 
   // ランダムに次の問題を選ぶ
   let randomIndex = Math.floor(Math.random() * remainingQuestions.length);
@@ -65,6 +70,7 @@ function nextQuestion() {
   remainingQuestions.splice(randomIndex, 1);
 
   displayQuestion();
+  updateScore();
 
   // 入力フィールドにフォーカスを移動
   document.getElementById("answer").focus();
@@ -73,6 +79,9 @@ function nextQuestion() {
 function showHint() {
   document.getElementById("hint").innerText = questions[currentQuestion].hint;
   document.getElementById("hint").style.display = "block";
+
+  // 入力フィールドにフォーカスを移動
+  document.getElementById("answer").focus();
 }
 
 function updateScore() {
@@ -84,6 +93,11 @@ document.getElementById("answer").addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
       checkAnswer();
   }
+});
+
+// ページ全体のクリックでinputにフォーカスを移動
+document.addEventListener("click", function() {
+  document.getElementById("answer").focus();
 });
 
 // 最初にランダムな問題を出題
