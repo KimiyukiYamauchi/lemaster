@@ -6,13 +6,15 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="question">問題: xは10以上</div>
-    <input type="text" id="answer" placeholder="例: x >= 10">
-    <button onclick="checkAnswer()">チェック</button>
-    <div id="result"></div>
-    <button onclick="nextQuestion()">次の問題へ</button>
+  <div id="question-container">
+    <div id="question">問題: </div>
     <button onclick="showHint()">ヒント</button>
-  <div id="hint" style="display:none;">「以上」は >= を使用します。</div>
+    <input type="text" id="answer" placeholder="回答を入力">
+    <div id="hint" style="display:none; margin-top: 10px;"></div> <!-- ヒント表示位置 -->
+    <div id="result" style="margin-top: 10px;"></div> <!-- 結果表示 -->
+    <button onclick="nextQuestion()">次の問題へ</button>
+    <div id="score" style="margin-top: 10px;">0問正解/0問中</div> <!-- スコア表示 -->
+  </div>
   <script src="js/script.js"></script>
 </body>
 </html>
